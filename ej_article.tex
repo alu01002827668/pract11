@@ -1,0 +1,107 @@
+
+\documentclass[spanish,a4paper,10pt]{article}
+
+\usepackage{latexsym,amsfonts,amssymb,amstext,amsthm,float,amsmath}
+\usepackage[spanish]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage[dvips]{epsfig}
+\usepackage{doc}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%123456789012345678901234567890123456789012345678901234567890123456789
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\textheight    29cm
+%\textwidth     15cm
+%\topmargin     -4cm
+%\oddsidemargin  5mm
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\title{Aproximación del número $\pi$ con una máquina de cómputo}
+\author{Técnicas Experimentales \\ Práctica de Laboratorio \#5}
+\date{5 de marzo de 2014}
+
+\maketitle
+
+\begin{abstract}
+El objetivo de esta práctica es entregar un programa escrito en \textsf{Python}
+en el que se aproxime el valor de $\pi$ con un una precisión dada. 
+\end{abstract}
+
+%\thispagestyle{empty}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\section{Motivación y Objetivos}
+
+A lo largo de la historia han sido muchas las formas utilizadas por el 
+ser humano para calcular aproximaciones cada vez más exactas del número $\pi$.
+%
+El objetivo de esta práctica de laboratorio es implementar el código \textsf{Python}
+que permita a\-pro\-xi\-mar el número $\pi$ con una cierta precisión. 
+%
+$\pi$ se puede calcular mediante integración:
+
+$$\int_{0}^{1} \! \frac{4}{1+x^2}\, dx = 4(atan(1) -atan(0)) = \pi $$
+
+Esta integral se puede aproximar numéricamente con una fórmula de cuadratura.
+%
+Si se utiliza la regla del punto medio se obtiene:
+
+\begin{center}
+$ \pi \approx \frac{1}{n} \sum\limits_{i=1}^{n}f(x_i)\,$, 
+con $f(x) = \frac{4}{(1+x^2)}\,$,
+$x_i = \frac{i - \frac{1}{2}}{n}$,
+para $i = 1, \dots, n$
+\end{center}
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\section{Ejercicios propuestos}
+
+Escriba un programa que reciba como entrada el número de subintervalos 
+con los que se desea abordar la aproximación de $\pi$.
+%
+A partir de él se deben calcular y mostrar por la consola:
+
+\begin{enumerate}
+  \item
+    Los extremos de los subintervalos. 
+  \item
+    El punto $x_i$. 
+  \item
+    El valor de de la función de aproximación de $pi$, $f(x_i)$.
+  \item
+    El resultado de la aproximación.
+  \item
+    La constante $pi$ con treinta y cinco decimales.
+\end{enumerate}
+
+Por ejemplo, si se utilizan 4 subintervalos, la salida debería ser: 
+
+\begin{footnotesize}
+\begin{verbatim}
+Introduzca el número de intervalos (n > 0): 4
+Subintervalo: [0   , 0.25]   x_i: 0.125   fx_i: 3.93846
+Subintervalo: [0.25, 0.5 ]   x_i: 0.375   fx_i: 3.50685
+Subintervalo: [0.5 , 0.75]   x_i: 0.625   fx_i: 2.8764
+Subintervalo: [0.75, 1   ]   x_i: 0.875   fx_i: 2.26549
+
+El valor aproximado de PI es:  3.14680051839 
+El valor de PI con 35 decimales: 3.1415926535897931159979634685441852 \end{verbatim}
+\end{footnotesize}
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\section{Entregable}
+En la tarea habilitada para esta práctica en el Aula Virtual, se subirá 
+la dirección del repositorio \textit{github} donde se ha almacenado la práctica. 
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\section{Para saber más...}
+
+Amplíe el programa \textsf{Python} que ha desarrollado para que el número de
+subintervalos se pueda obtener también desde la línea de comandos.
+
+\begin{thebibliography}{1}
+\bibitem{python} Tutorial de Python. http://docs.python.org/2/tutorial/ 
+\end{thebibliography}
+
+\end{document}
